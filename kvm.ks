@@ -105,9 +105,8 @@ r_base::users:
 
 # ssh
 r_base::ssh:
- ensure: 'running'
- enable: true
- version: 'latest'
+ server_permit_user_environment: 'yes'
+ server_use_dns: 'no'
 
 # terminfo
 r_base::terminfo:
@@ -129,11 +128,14 @@ mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git',
   :tag => '4.3.2'
 
+mod 'misclib',
+  :git => 'https://h0tbird@github.com/h0tbird/puppet-misclib.git'
+
 mod 'users',
   :git => 'https://h0tbird@github.com/h0tbird/puppet-users.git'
 
-mod 'sshd',
-  :git => 'https://h0tbird@github.com/h0tbird/puppet-sshd.git'
+mod 'ssh',
+  :git => 'https://h0tbird@github.com/h0tbird/puppet-ssh.git'
 
 mod 'terminfo',
   :git => 'https://h0tbird@github.com/h0tbird/puppet-terminfo.git'
