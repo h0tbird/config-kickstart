@@ -107,12 +107,6 @@ r_base::users:
 p_ssh::server_permit_user_environment: 'yes'
 p_ssh::server_use_dns: 'no'
 
-# terminfo
-r_base::terminfo:
- purge: false
- backup: false
- recurse: 'remote'
-
 ...
 EOF
 
