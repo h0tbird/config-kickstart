@@ -104,9 +104,8 @@ r_base::users:
   root: *User_root
 
 # ssh
-r_base::ssh:
- server_permit_user_environment: 'yes'
- server_use_dns: 'no'
+p_ssh::server_permit_user_environment: 'yes'
+p_ssh::server_use_dns: 'no'
 
 # terminfo
 r_base::terminfo:
@@ -136,6 +135,9 @@ mod 'users',
 
 mod 'ssh',
   :git => 'https://h0tbird@github.com/h0tbird/puppet-ssh.git'
+
+mod 'p_ssh',
+  :git => 'https://h0tbird@github.com/h0tbird/puppet-p_ssh.git'
 
 mod 'terminfo',
   :git => 'https://h0tbird@github.com/h0tbird/puppet-terminfo.git'
