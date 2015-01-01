@@ -80,6 +80,6 @@ EOF
 
 rm -rf /etc/puppet
 git clone https://github.com/h0tbird/puppet.git /etc/puppet
-rm -rf /etc/puppet/environment/*
+rm -rf /etc/puppet/environments/*
 /usr/local/bin/r10k deploy environment
 %end
