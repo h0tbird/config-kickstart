@@ -7,7 +7,8 @@ eula --agreed
 network --bootproto=dhcp --device=bootif --onboot=on
 rootpw password
 timezone Europe/Madrid --isUtc
-services --enabled sshd
+services --disabled auditd,avahi-daemon,NetworkManager,postfix,microcode,tuned
+services --enabled network,sshd
 selinux --disabled
 firewall --disabled
 repo --name="CentOS" --baseurl=http://repo01.demo.lan/centos/7/os/x86_64/
@@ -25,11 +26,14 @@ part /boot --fstype xfs --size=200
 part / --fstype ext4 --size=1024 --grow
 reboot
 
-%packages --excludedocs --ignoremissing
+%packages --nobase --excludedocs
 @Core
 rubygem-r10k
 puppet
 git
+-*NetworkManager*
+-*firmware*
+-*firewalld*
 %end
 
 %post --nochroot --log=/mnt/sysimage/root/ks-post-nochroot.log
