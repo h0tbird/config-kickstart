@@ -48,6 +48,43 @@ rpm --import http://repo01.demo.lan/centos/7/os/x86_64/RPM-GPG-KEY-CentOS-7
 rpm --import http://repo01.demo.lan/centos/7/epel/RPM-GPG-KEY-EPEL-7
 rpm --import http://repo01.demo.lan/puppet/RPM-GPG-KEY-puppetlabs
 
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-enp0s10
+DEVICE=enp0s10
+NAME=enp0s10
+TYPE=Ethernet
+ONBOOT=yes
+BRIDGE=br0
+EOF
+
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-enp1s10
+DEVICE=enp1s10
+NAME=enp1s10
+TYPE=Ethernet
+ONBOOT=no
+EOF
+
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-enp1s10.3
+DEVICE=enp1s10.3
+NAME=enp1s10.3
+TYPE=Ethernet
+ONBOOT=yes
+BRIDGE=br1
+BOOTPROTO=none
+VLAN=yes
+ONPARENT=yes
+EOF
+
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-enp1s10.6
+DEVICE=enp1s10.6
+NAME=enp1s10.6
+TYPE=Ethernet
+ONBOOT=yes
+BRIDGE=br2
+BOOTPROTO=none
+VLAN=yes
+ONPARENT=yes
+EOF
+
 cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br0
 DEVICE=br0
 NAME=br0
@@ -62,12 +99,22 @@ PEERROUTES=yes
 IPV6INIT=no
 EOF
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-enp0s10
-DEVICE=enp0s10
-NAME=enp0s10
-TYPE=Ethernet
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br1
+DEVICE=br1
+NAME=br1
+TYPE=Bridge
 ONBOOT=yes
-BRIDGE=br0
+STP=yes
+IPV6INIT=no
+EOF
+
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br1_6
+DEVICE=br2
+NAME=br2
+TYPE=Bridge
+ONBOOT=yes
+STP=yes
+IPV6INIT=no
 EOF
 
 cat << EOF > /etc/r10k.yaml
