@@ -108,7 +108,7 @@ STP=yes
 IPV6INIT=no
 EOF
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br1_6
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br2
 DEVICE=br2
 NAME=br2
 TYPE=Bridge
