@@ -69,7 +69,6 @@ NAME=enp1s10.3
 TYPE=Ethernet
 ONBOOT=yes
 BRIDGE=br1
-BOOTPROTO=none
 VLAN=yes
 ONPARENT=yes
 EOF
@@ -80,7 +79,6 @@ NAME=enp1s10.6
 TYPE=Ethernet
 ONBOOT=yes
 BRIDGE=br2
-BOOTPROTO=none
 VLAN=yes
 ONPARENT=yes
 EOF
@@ -90,7 +88,7 @@ DEVICE=br0
 NAME=br0
 TYPE=Bridge
 ONBOOT=yes
-STP=yes
+STP=no
 DELAY=0
 BOOTPROTO=dhcp
 DEFROUTE=yes
@@ -104,7 +102,7 @@ DEVICE=br1
 NAME=br1
 TYPE=Bridge
 ONBOOT=yes
-STP=yes
+STP=no
 IPV6INIT=no
 EOF
 
@@ -113,7 +111,7 @@ DEVICE=br2
 NAME=br2
 TYPE=Bridge
 ONBOOT=yes
-STP=yes
+STP=no
 IPV6INIT=no
 EOF
 
