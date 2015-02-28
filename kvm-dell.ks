@@ -1,5 +1,5 @@
 install
-url --url="http://repo01.demo.lan/centos/7/os/x86_64/"
+url --url="http://data01.demo.lan/centos/7/os/x86_64/"
 text
 keyboard es
 lang en_US.UTF-8
@@ -11,12 +11,12 @@ services --disabled auditd,avahi-daemon,NetworkManager,postfix,microcode,tuned
 services --enabled network,sshd
 selinux --disabled
 firewall --disabled
-repo --name="CentOS" --baseurl=http://repo01.demo.lan/centos/7/os/x86_64/
-repo --name="Updates" --baseurl=http://repo01.demo.lan/centos/7/updates/
-repo --name="EPEL" --baseurl=http://repo01.demo.lan/centos/7/epel/
-repo --name="Misc" --baseurl=http://repo01.demo.lan/centos/7/misc/
-repo --name="Puppet-products" --baseurl=http://repo01.demo.lan/puppet/puppetlabs-products/
-repo --name="Puppet-deps" --baseurl=http://repo01.demo.lan/puppet/puppetlabs-deps/
+repo --name="CentOS" --baseurl=http://data01.demo.lan/centos/7/os/x86_64/
+repo --name="Updates" --baseurl=http://data01.demo.lan/centos/7/updates/
+repo --name="EPEL" --baseurl=http://data01.demo.lan/centos/7/epel/
+repo --name="Misc" --baseurl=http://data01.demo.lan/centos/7/misc/
+repo --name="Puppet-products" --baseurl=http://data01.demo.lan/puppet/puppetlabs-products/
+repo --name="Puppet-deps" --baseurl=http://data01.demo.lan/puppet/puppetlabs-deps/
 ignoredisk --only-use=sda
 bootloader --location=mbr
 zerombr
@@ -43,9 +43,9 @@ cp /tmp/yum.repos.d/* /mnt/sysimage/etc/yum.repos.d/
 %end
 
 %post --log=/root/ks-post-chroot.log
-rpm --import http://repo01.demo.lan/centos/7/os/x86_64/RPM-GPG-KEY-CentOS-7
-rpm --import http://repo01.demo.lan/centos/7/epel/RPM-GPG-KEY-EPEL-7
-rpm --import http://repo01.demo.lan/puppet/RPM-GPG-KEY-puppetlabs
+rpm --import http://data01.demo.lan/centos/7/os/x86_64/RPM-GPG-KEY-CentOS-7
+rpm --import http://data01.demo.lan/centos/7/epel/RPM-GPG-KEY-EPEL-7
+rpm --import http://data01.demo.lan/puppet/RPM-GPG-KEY-puppetlabs
 
 cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno1
 DEVICE=eno1
