@@ -118,12 +118,12 @@ cat << EOF > /etc/r10k.yaml
 cachedir: /var/cache/r10k
 sources:
  puppet:
-  remote: 'https://github.com/h0tbird/puppet-c_kvm.git'
+  remote: 'http://gito01.demo.lan/cgit/r10k-kvm'
   basedir: /etc/puppet/environments
 EOF
 
 rm -rf /etc/puppet
-git clone https://github.com/h0tbird/puppet.git /etc/puppet
+git clone http://gito01.demo.lan/cgit/puppet-config /etc/puppet
 rm -rf /etc/puppet/environments/*
 /usr/local/bin/r10k deploy environment
 %end
