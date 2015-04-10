@@ -17,7 +17,6 @@ repo --name="EPEL" --baseurl=http://data01.demo.lan/centos/7/epel/
 repo --name="Misc" --baseurl=http://data01.demo.lan/centos/7/misc/
 repo --name="Puppet-products" --baseurl=http://data01.demo.lan/puppet/puppetlabs-products/
 repo --name="Puppet-deps" --baseurl=http://data01.demo.lan/puppet/puppetlabs-deps/
-ignoredisk --only-use=sda
 bootloader --location=mbr
 zerombr
 clearpart --all --initlabel
