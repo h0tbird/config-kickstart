@@ -46,39 +46,12 @@ rpm --import http://data01.demo.lan/centos/7/os/x86_64/RPM-GPG-KEY-CentOS-7
 rpm --import http://data01.demo.lan/centos/7/epel/RPM-GPG-KEY-EPEL-7
 rpm --import http://data01.demo.lan/puppet/RPM-GPG-KEY-puppetlabs
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno1
-DEVICE=eno1
-NAME=eno1
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-em1
+DEVICE=em1
+NAME=em1
 TYPE=Ethernet
 ONBOOT=yes
 BRIDGE=br0
-EOF
-
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth1
-DEVICE=eth1
-NAME=eth1
-TYPE=Ethernet
-ONBOOT=no
-EOF
-
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth1.3
-DEVICE=eth1.3
-NAME=eth1.3
-TYPE=Ethernet
-ONBOOT=yes
-BRIDGE=br1
-VLAN=yes
-ONPARENT=yes
-EOF
-
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth1.6
-DEVICE=eth1.6
-NAME=eth1.6
-TYPE=Ethernet
-ONBOOT=yes
-BRIDGE=br2
-VLAN=yes
-ONPARENT=yes
 EOF
 
 cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br0
@@ -92,24 +65,6 @@ BOOTPROTO=dhcp
 DEFROUTE=yes
 PEERDNS=yes
 PEERROUTES=yes
-IPV6INIT=no
-EOF
-
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br1
-DEVICE=br1
-NAME=br1
-TYPE=Bridge
-ONBOOT=yes
-STP=no
-IPV6INIT=no
-EOF
-
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br2
-DEVICE=br2
-NAME=br2
-TYPE=Bridge
-ONBOOT=yes
-STP=no
 IPV6INIT=no
 EOF
 
