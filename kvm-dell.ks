@@ -76,8 +76,15 @@ sources:
   basedir: /etc/puppet/environments
 EOF
 
+cat << EOF > /usr/local/sbin/pupply
+#!/bin/bash
+r10k deploy environment -p
+puppet apply /etc/puppet/environments/production/manifests/site.pp
+EOF
+
+chmod a+x /usr/local/sbin/pupply
 rm -rf /etc/puppet
 git clone http://gito01.demo.lan/cgit/puppet-config /etc/puppet
 rm -rf /etc/puppet/environments/*
-/usr/local/bin/r10k deploy environment
+/usr/local/bin/r10k deploy environment -p
 %end
