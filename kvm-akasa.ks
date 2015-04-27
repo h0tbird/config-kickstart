@@ -51,40 +51,40 @@ cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno1
 DEVICE=eno1
 NAME=eno1
 TYPE=Ethernet
-ONBOOT=yes
-BRIDGE=br0
-EOF
-
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth1
-DEVICE=eth1
-NAME=eth1
-TYPE=Ethernet
 ONBOOT=no
 EOF
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth1.3
-DEVICE=eth1.3
-NAME=eth1.3
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno2
+DEVICE=eno2
+NAME=eno2
 TYPE=Ethernet
 ONBOOT=yes
-BRIDGE=br1
+BRIDGE=core0
+EOF
+
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno1.3
+DEVICE=eno1.3
+NAME=eno1.3
+TYPE=Ethernet
+ONBOOT=yes
+BRIDGE=core1
 VLAN=yes
 ONPARENT=yes
 EOF
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth1.6
-DEVICE=eth1.6
-NAME=eth1.6
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno1.6
+DEVICE=eno1.6
+NAME=eno1.6
 TYPE=Ethernet
 ONBOOT=yes
-BRIDGE=br2
+BRIDGE=core2
 VLAN=yes
 ONPARENT=yes
 EOF
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br0
-DEVICE=br0
-NAME=br0
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-core0
+DEVICE=core0
+NAME=core0
 TYPE=Bridge
 ONBOOT=yes
 STP=no
@@ -96,18 +96,18 @@ PEERROUTES=yes
 IPV6INIT=no
 EOF
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br1
-DEVICE=br1
-NAME=br1
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-core1
+DEVICE=core1
+NAME=core1
 TYPE=Bridge
 ONBOOT=yes
 STP=no
 IPV6INIT=no
 EOF
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br2
-DEVICE=br2
-NAME=br2
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-core2
+DEVICE=core2
+NAME=core2
 TYPE=Bridge
 ONBOOT=yes
 STP=no
