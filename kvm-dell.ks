@@ -51,12 +51,12 @@ DEVICE=em1
 NAME=em1
 TYPE=Ethernet
 ONBOOT=yes
-BRIDGE=br0
+BRIDGE=core0
 EOF
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-br0
-DEVICE=br0
-NAME=br0
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-core0
+DEVICE=core0
+NAME=core0
 TYPE=Bridge
 ONBOOT=yes
 STP=no
