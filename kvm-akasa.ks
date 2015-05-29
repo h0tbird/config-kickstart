@@ -13,6 +13,7 @@ selinux --disabled
 firewall --disabled
 repo --name="CentOS" --baseurl=http://data01/centos/7/os/x86_64/
 repo --name="Updates" --baseurl=http://data01/centos/7/updates/
+repo --name="Extras" --baseurl=http://data01/centos/7/extras/
 repo --name="EPEL" --baseurl=http://data01/centos/7/epel/
 repo --name="Misc" --baseurl=http://data01/centos/7/misc/
 repo --name="Puppet-products" --baseurl=http://data01/puppet/puppetlabs-products/
