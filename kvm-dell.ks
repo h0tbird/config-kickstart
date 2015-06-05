@@ -47,6 +47,11 @@ rpm --import http://data01/centos/7/os/x86_64/RPM-GPG-KEY-CentOS-7
 rpm --import http://data01/centos/7/epel/RPM-GPG-KEY-EPEL-7
 rpm --import http://data01/puppet/RPM-GPG-KEY-puppetlabs
 
+cat << EOF >> /etc/sysctl.conf
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+EOF
+
 cat << EOF > /etc/sysconfig/network-scripts/ifcfg-em1
 DEVICE=em1
 NAME=em1
