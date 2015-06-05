@@ -73,7 +73,7 @@ DEFROUTE=yes
 PEERDNS=yes
 PEERROUTES=yes
 IPV6INIT=no
-HWADDR=$(cat /sys/class/net/em1/address)
+MACADDR=$(cat /sys/class/net/em1/address)
 EOF
 
 cat << EOF > /etc/r10k.yaml
