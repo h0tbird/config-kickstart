@@ -53,6 +53,7 @@ NAME=em1
 TYPE=Ethernet
 ONBOOT=yes
 BRIDGE=core0
+HWADDR=$(cat /sys/class/net/em1/address)
 EOF
 
 cat << EOF > /etc/sysconfig/network-scripts/ifcfg-core0
