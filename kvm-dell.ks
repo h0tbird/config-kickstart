@@ -20,10 +20,11 @@ repo --name="Puppet-products" --baseurl=http://data01/puppet/puppetlabs-products
 repo --name="Puppet-deps" --baseurl=http://data01/puppet/puppetlabs-deps/
 bootloader --location=mbr
 zerombr
-clearpart --all --initlabel
-part swap --asprimary --fstype="swap" --size=1024
-part /boot --fstype xfs --size=200
-part / --fstype ext4 --size=1024 --grow
+clearpart --drives=sda --all --initlabel
+ignoredisk --only-use=sda
+part swap --asprimary --fstype="swap" --size=1024 --ondisk=sda
+part /boot --fstype xfs --size=200 --ondisk=sda
+part / --fstype ext4 --size=1024 --grow --ondisk=sda
 reboot
 
 %packages --nobase --excludedocs
