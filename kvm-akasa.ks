@@ -47,6 +47,7 @@ cp /tmp/yum.repos.d/* /mnt/sysimage/etc/yum.repos.d/
 rpm --import http://data01/centos/7/os/x86_64/RPM-GPG-KEY-CentOS-7
 rpm --import http://data01/centos/7/epel/RPM-GPG-KEY-EPEL-7
 rpm --import http://data01/puppet/RPM-GPG-KEY-puppetlabs
+rpm --import http://data01/booddies/RPM-GPG-KEY-booddies
 
 cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno1
 DEVICE=eno1
