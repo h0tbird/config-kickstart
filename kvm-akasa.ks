@@ -49,6 +49,11 @@ rpm --import http://data01/centos/7/epel/RPM-GPG-KEY-EPEL-7
 rpm --import http://data01/puppet/RPM-GPG-KEY-puppetlabs
 rpm --import http://data01/booddies/RPM-GPG-KEY-booddies
 
+cat << EOF >> /etc/sysctl.conf
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+EOF
+
 cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno1
 DEVICE=eno1
 NAME=eno1
