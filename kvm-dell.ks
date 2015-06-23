@@ -78,7 +78,8 @@ IPV6INIT=no
 MACADDR=$(cat /sys/class/net/em1/address)
 EOF
 
-cat << EOF > /etc/r10k.yaml
+mkdir -p /etc/puppetlabs/r10k
+cat << EOF > /etc/puppetlabs/r10k/r10k.yaml
 cachedir: /var/cache/r10k
 sources:
  puppet:
