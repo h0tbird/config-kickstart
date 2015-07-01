@@ -139,6 +139,6 @@ EOF
 chmod a+x /usr/local/sbin/pupply
 rm -rf /etc/puppet
 git clone http://gito01/cgit/config-puppet /etc/puppet
-rm -rf /etc/puppet/environments/*
+mkdir /etc/puppet/environments
 /usr/local/bin/r10k deploy environment -p
 %end
