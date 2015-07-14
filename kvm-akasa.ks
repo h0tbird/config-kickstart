@@ -22,7 +22,7 @@ ignoredisk --only-use=sda
 bootloader --location=mbr
 zerombr
 clearpart --all --initlabel
-part swap --asprimary --fstype="swap" --size=1024
+part swap --asprimary --fstype="swap" --size=8192
 part /boot --fstype xfs --size=200
 part / --fstype ext4 --size=1024 --grow
 reboot
