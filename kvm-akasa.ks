@@ -69,26 +69,6 @@ ONBOOT=yes
 BRIDGE=core0
 EOF
 
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno1.3
-DEVICE=eno1.3
-NAME=eno1.3
-TYPE=Ethernet
-ONBOOT=yes
-BRIDGE=core1
-VLAN=yes
-ONPARENT=yes
-EOF
-
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eno1.6
-DEVICE=eno1.6
-NAME=eno1.6
-TYPE=Ethernet
-ONBOOT=yes
-BRIDGE=core2
-VLAN=yes
-ONPARENT=yes
-EOF
-
 cat << EOF > /etc/sysconfig/network-scripts/ifcfg-core0
 DEVICE=core0
 NAME=core0
@@ -100,24 +80,6 @@ BOOTPROTO=dhcp
 DEFROUTE=yes
 PEERDNS=yes
 PEERROUTES=yes
-IPV6INIT=no
-EOF
-
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-core1
-DEVICE=core1
-NAME=core1
-TYPE=Bridge
-ONBOOT=yes
-STP=no
-IPV6INIT=no
-EOF
-
-cat << EOF > /etc/sysconfig/network-scripts/ifcfg-core2
-DEVICE=core2
-NAME=core2
-TYPE=Bridge
-ONBOOT=yes
-STP=no
 IPV6INIT=no
 EOF
 
