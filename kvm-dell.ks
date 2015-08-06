@@ -59,8 +59,20 @@ DEVICE=em1
 NAME=em1
 TYPE=Ethernet
 ONBOOT=yes
-BRIDGE=core0
 HWADDR=$(cat /sys/class/net/em1/address)
+EOF
+
+VLAN=$(basename /etc/sysconfig/network-scripts/ifcfg-em1.* | awk -F . '{print $2}')
+
+cat << EOF > /etc/sysconfig/network-scripts/ifcfg-em1.${VLAN}
+DEVICE=em1.${VLAN}
+NAME=em1.${VLAN}
+TYPE=Vlan
+VLAN=yes
+ONBOOT=yes
+HWADDR=$(cat /sys/class/net/em1/address)
+PHYSDEV=em1
+BRIDGE=core0
 EOF
 
 cat << EOF > /etc/sysconfig/network-scripts/ifcfg-core0
