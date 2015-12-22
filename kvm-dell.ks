@@ -4,7 +4,7 @@ text
 keyboard es
 lang en_US.UTF-8
 eula --agreed
-network --bootproto=dhcp --device=bootif --onboot=on --activate
+network --bootproto=dhcp --device=bootif --onboot=on
 rootpw password
 timezone Europe/Madrid --isUtc
 services --disabled auditd,avahi-daemon,NetworkManager,postfix,microcode,tuned
