@@ -24,7 +24,7 @@ zerombr
 clearpart --all --initlabel
 part swap --asprimary --fstype="swap" --size=8192
 part /boot --fstype xfs --size=200
-part / --fstype ext4 --size=1024 --grow
+part / --fstype xfs --size=1024 --grow
 reboot
 
 %packages --nobase --excludedocs

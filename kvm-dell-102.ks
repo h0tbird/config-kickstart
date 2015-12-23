@@ -24,7 +24,7 @@ clearpart --drives=sda --all --initlabel
 ignoredisk --only-use=sda
 part swap --asprimary --fstype="swap" --size=8192 --ondisk=sda
 part /boot --fstype xfs --size=200 --ondisk=sda
-part / --fstype ext4 --size=1024 --grow --ondisk=sda
+part / --fstype xfs --size=1024 --grow --ondisk=sda
 reboot
 
 %packages --nobase --excludedocs
